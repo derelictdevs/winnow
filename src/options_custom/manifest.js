@@ -252,6 +252,55 @@ this.manifest = {
             "displayModifier": function (value) {
                 return value + " total pages in a session";
             }
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scrolly Options"),
+            "name": "pctChanceScrollUp",
+            "type": "slider",
+            "label": "% chance of scrolling up",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "display": true,
+            "displayModifier": function (value) {
+                return value + "%";
+            }
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scrolly Options"),
+            "name": "canLeavePageBeforeBottom",
+            "type": "checkbox",
+            "label": "Allow leaving the page before the bottom is reached"
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scrolly Options"),
+            "name": "pctPageScrollMinBeforeLeaving",
+            "type": "slider",
+            "label": "Min % page should be scrolled before leaving",
+            "max": 100,
+            "min": 1,
+            "step": 1,
+            "display": true,
+            "displayModifier": function (value) {
+                return value + "%";
+            }
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scrolly Options"),
+            "name": "pctChanceLeavePageBeforeBottom",
+            "type": "slider",
+            "label": "% chance of leaving page after min scroll %",
+            "max": 100,
+            "min": 1,
+            "step": 1,
+            "display": true,
+            "displayModifier": function (value) {
+                return value + "%";
+            }
         }
     ],
     "alignment": [

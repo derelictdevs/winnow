@@ -1,8 +1,8 @@
 {
-  "name": "Chaff",
-  "version": "0.2.5",
+  "name": "Winnow",
+  "version": "0.1.0",
   "manifest_version": 2,
-  "description": "Generate random web browsing traffic to obfuscate actual browsing behavior to avoid profiling through 3rd party observation.",
+  "description": "Builds on the Chaff base and adds human-esque browsing features such as scrolling.",
   "icons": {
     "16": "icons/chaff_icon_16.png",
     "48": "icons/chaff_icon_48.png",
@@ -18,7 +18,7 @@
       "19": "icons/chaff_icon_19.png",
       "38": "icons/chaff_icon_38.png"
     },
-    "default_title": "Chaff"
+    "default_title": "Winnow"
   },
   "permissions": [
     "idle",

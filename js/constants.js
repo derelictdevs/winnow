@@ -28,5 +28,9 @@ var DEFAULTS = {
 	"useGoogle": false,
 	"useBing": false,
 	"useYahoo": false,
-	"useBookmarks": true
+	"useBookmarks": true,
+        "canLeavePageBeforeBottom": true,
+        "pctPageScrollMinBeforeLeaving": 60,
+        "pctChanceScrollUp": 15,
+        "pctChanceLeavePageBeforeBottom": 10
 };

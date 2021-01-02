@@ -387,7 +387,7 @@ function getDomain(url) {
 function inject() {
 	console.log("Injecting into tab ["+tabId+"].");
 	try {
-		chrome.tabs.executeScript(tabId, { code: "var scriptOptions = { timeBetweenClicksVariance: "+settings.get("timeBetweenClicksVariance")+", maxTimeBetweenClicks: "+settings.get("maxTimeBetweenClicks")+" };" }, 
+		chrome.tabs.executeScript(tabId, { code: "var scriptOptions = { timeBetweenClicksVariance: "+settings.get("timeBetweenClicksVariance")+", maxTimeBetweenClicks: "+settings.get("maxTimeBetweenClicks")+", allowScrollUp: "+settings.get("allowScrollUp")+ ", canLeavePageBeforeBottom: "+settings.get("canLeavePageBeforeBottom")+", pctPageScrollMinBeforeLeaving: "+settings.get("pctPageScrollMinBeforeLeaving")+", pctChanceScrollUp: "+settings.get("pctChanceScrollUp")+", pctChanceLeavePageBeforeBottom: "+settings.get("pctChanceLeavePageBeforeBottom")+" };" },
 			function() {
 				//console.log(">>Injecting Chaff.");
 				chrome.tabs.executeScript(tabId, { file: "src/inject/inject.js" }, 
