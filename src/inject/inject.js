@@ -77,7 +77,7 @@ var _w_data = {
 
     // Function to determine if the current update should scroll up.
     // Current value is 15%
-    shouldScrollUpFn: function() { return ( scriptOptions.scriptOptions.pctChanceScrollUp > 0 &&
+    shouldScrollUpFn: function() { return ( scriptOptions.pctChanceScrollUp > 0 &&
         ( randInt( 0, 100 ) < scriptOptions.pctChanceScrollUp ) ); },
     // Function to return the amount to scroll up.
     scrollUpAmtFn: function() { return randInt( 20, 120 ); },
