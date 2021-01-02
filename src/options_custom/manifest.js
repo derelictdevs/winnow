@@ -1,7 +1,7 @@
 // SAMPLE
 this.manifest = {
     "name": "Chaff Settings",
-    "icon": "chaff_icon_38.png",
+    "icon": "logo_icon_38.png",
     "settings": [
     	{
             "tab": i18n.get("Configuration"),

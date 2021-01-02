@@ -4,9 +4,9 @@
   "manifest_version": 2,
   "description": "Builds on the Chaff base and adds human-esque browsing features such as scrolling.",
   "icons": {
-    "16": "icons/chaff_icon_16.png",
-    "48": "icons/chaff_icon_48.png",
-    "128": "icons/chaff_icon_128.png"
+    "16": "icons/logo_icon_16.png",
+    "48": "icons/logo_icon_48.png",
+    "128": "icons/logo_icon_128.png"
   },
   "default_locale": "en",
   "background" : { "page": "src/bg/background.html",
@@ -15,8 +15,8 @@
   "options_page": "src/options_custom/index.html",
   "browser_action": {
     "default_icon": {
-      "19": "icons/chaff_icon_19.png",
-      "38": "icons/chaff_icon_38.png"
+      "19": "icons/logo_icon_19.png",
+      "38": "icons/logo_icon_38.png"
     },
     "default_title": "Winnow"
   },
