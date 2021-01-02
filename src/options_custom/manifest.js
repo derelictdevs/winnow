@@ -1,6 +1,6 @@
 // SAMPLE
 this.manifest = {
-    "name": "Chaff Settings",
+    "name": "Winnow Settings",
     "icon": "logo_icon_38.png",
     "settings": [
     	{
@@ -23,7 +23,7 @@ this.manifest = {
             "group": i18n.get("Auto Mode"),
             "name": "idleTimeDesc",
             "type": "description",
-            "text": "The amount of idle time in minutes that has to transpire before Chaff begins."
+            "text": "The amount of idle time in minutes that has to transpire before Winnow begins."
         },
         {
             "tab": i18n.get("Configuration"),
@@ -104,7 +104,7 @@ this.manifest = {
             "group": i18n.get("Search Engines"),
             "name": "searchEnginesDesc",
             "type": "description",
-            "text": "Select one or more search engines Chaff should use when searching for random phrases."
+            "text": "Select one or more search engines Winnow should use when searching for random phrases."
         },
         {
             "tab": i18n.get("Sources"),
@@ -195,7 +195,7 @@ this.manifest = {
             "group": i18n.get("Timeout"),
             "name": "browsingTimeoutDesc",
             "type": "description",
-            "text": "The maximum time Chaff waits for a page to load to avoid getting stuck. Setting this too low with slow Internet connections will cause constant restarting."
+            "text": "The maximum time Winnow waits for a page to load to avoid getting stuck. Setting this too low with slow Internet connections will cause constant restarting."
        },
         {
             "tab": i18n.get("Tuning"),
