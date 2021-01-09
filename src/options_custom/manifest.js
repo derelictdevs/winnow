@@ -253,9 +253,16 @@ this.manifest = {
                 return value + " total pages in a session";
             }
         },
+    	{
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Up Options"),
+            "name": "scrollUpDesc",
+            "type": "description",
+            "text": "Controls the scrolling up behavior.  To disable, slide the \"% chance\" bar to 0."
+        },
         {
             "tab": i18n.get("Tuning"),
-            "group": i18n.get("Scrolly Options"),
+            "group": i18n.get("Scroll Up Options"),
             "name": "pctChanceScrollUp",
             "type": "slider",
             "label": "% chance of scrolling up",
@@ -269,14 +276,120 @@ this.manifest = {
         },
         {
             "tab": i18n.get("Tuning"),
-            "group": i18n.get("Scrolly Options"),
-            "name": "canLeavePageBeforeBottom",
-            "type": "checkbox",
-            "label": "Allow leaving the page before the bottom is reached"
+            "group": i18n.get("Scroll Up Options"),
+            "name": "minScrollUpPx",
+            "type": "text",
+            "label": "Minimum pixels to scroll up"
         },
         {
             "tab": i18n.get("Tuning"),
-            "group": i18n.get("Scrolly Options"),
+            "group": i18n.get("Scroll Up Options"),
+            "name": "maxScrollUpPx",
+            "type": "text",
+            "label": "Maximum pixels to scroll up"
+        },
+    	{
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Down Options"),
+            "name": "scrollDownDesc",
+            "type": "description",
+            "text": "Controls the scrolling down behavior." 
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Down Options"),
+            "name": "minScrollDownPx",
+            "type": "text",
+            "label": "Minimum pixels to scroll down"
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Down Options"),
+            "name": "maxScrollDownPx",
+            "type": "text",
+            "label": "Maximum pixels to scroll down"
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Down Options"),
+            "name": "maxPctPageDownScroll",
+            "type": "slider",
+            "label": "Max % of page that can be scrolled in one jump",
+            "max": 100,
+            "min": 1,
+            "step": 1,
+            "display": true,
+            "displayModifier": function (value) {
+                return value + "%";
+            }
+        },
+    	{
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Delay Options"),
+            "name": "scrollDelayDesc",
+            "type": "description",
+            "text": "Controls the scrolling delay behavior.  " +
+                    "Note that the \"ms\" in the settings is milliseconds, " +
+                    "or 1/1000th of a second.  This means that 1000 " +
+                    "milliseconds is equal to 1 second.<br><br>" +
+                    "There are 2 types of delays: standard and extended.  The" +
+                    "standard delay is what \"normally\" happens.  However, if " +
+                    "the \"% chance of extended delay\" is triggered, the extended " +
+                    "value will be used.  This is meant to simulate stopping longer " +
+                    "to read/view the page content."
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Delay Options"),
+            "name": "minStdScrollDelay",
+            "type": "text",
+            "label": "Minimum standard scroll delay, in milliseconds"
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Delay Options"),
+            "name": "maxStdScrollDelay",
+            "type": "text",
+            "label": "Maximum standard scroll delay, in milliseconds"
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Delay Options"),
+            "name": "pctPageScrollMinBeforeLeaving",
+            "type": "slider",
+            "label": "% chance of extended delay",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "display": true,
+            "displayModifier": function (value) {
+                return value + "%";
+            }
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Delay Options"),
+            "name": "minExtScrollDelay",
+            "type": "text",
+            "label": "Minimum extended scroll delay, in milliseconds"
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Scroll Delay Options"),
+            "name": "maxExtScrollDelay",
+            "type": "text",
+            "label": "Maximum extended scroll delay, in milliseconds"
+        },
+    	{
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Leaving Page Options"),
+            "name": "leavePageDesc",
+            "type": "description",
+            "text": "Controls if the page is left before scrolling to the bottom." 
+        },
+        {
+            "tab": i18n.get("Tuning"),
+            "group": i18n.get("Leaving Page Options"),
             "name": "pctPageScrollMinBeforeLeaving",
             "type": "slider",
             "label": "Min % page should be scrolled before leaving",
@@ -290,7 +403,7 @@ this.manifest = {
         },
         {
             "tab": i18n.get("Tuning"),
-            "group": i18n.get("Scrolly Options"),
+            "group": i18n.get("Leaving Page Options"),
             "name": "pctChanceLeavePageBeforeBottom",
             "type": "slider",
             "label": "% chance of leaving page after min scroll %",

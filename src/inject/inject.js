@@ -77,30 +77,58 @@ var _w_data = {
 
     // Function to determine if the current update should scroll up.
     // Current value is 15%
-    shouldScrollUpFn: function() { return ( scriptOptions.pctChanceScrollUp > 0 &&
-        ( randInt( 0, 100 ) < scriptOptions.pctChanceScrollUp ) ); },
+    shouldScrollUpFn: function() 
+    { 
+        return ( 
+            ( scriptOptions.pctChanceScrollUp > 0 ) &&
+            ( randInt( 0, 100 ) < scriptOptions.pctChanceScrollUp ) ); 
+    },
+
     // Function to return the amount to scroll up.
-    scrollUpAmtFn: function() { return randInt( 20, 120 ); },
+    scrollUpAmtFn: function() 
+    { 
+        var iMin = scriptOptions.minScrollUpPx;
+        var iMax = scriptOptions.maxScrollUpPx;
+
+        return randInt( Math.min( iMin, iMax ), Math.max( iMin, iMax ) );
+    },
 
     // Function to return the amount to scroll down.
-    scrollDownAmtFn: function() { 
-        return randInt( 20, Math.max( 250, 
-            Math.floor( document.body.scrollHeight / 10 ) ) ); },
+    scrollDownAmtFn: function() 
+    {
+        var iMin = scriptOptions.minScrollDownPx;
+        var iMax =  Math.max( 
+                scriptOptions.maxScrollDownPx,
+                Math.floor( document.body.scrollHeight / scriptOptions.maxPctPageDownScroll ) );
 
-    shouldLeavePageBBFn: 
-        function() { 
-            return ( ( this.yLoc / document.body.scrollHeight ) > 
-                     ( scriptOptions.pctPageScrollMinBeforeLeaving / 100 ) ) &&
-                   ( randInt( 0, 100 ) < scriptOptions.pctChanceLeavePageBeforeBottom ); 
-        },
+        return randInt( Math.min( iMin, iMax ), Math.max( iMin, iMax ) );
+    },
 
-    scrollDelayFn: 
-        function() {
-            if ( randInt( 0, 100 ) < 28 )
-                return 250 + ( 250 * randInt( 1, 12 ) );
-            else
-                return randInt( 75, 350 );
+    //  Determines if the page should be left before scrolling to the bottom.
+    shouldLeavePageBBFn: function() 
+    { 
+        var iPctChance = scriptOptions.pctChanceLeavePageBeforeBottom;
+
+        return ( 0 == iPctChance ) ? false : ( ( this.yLoc / document.body.scrollHeight ) > 
+                   ( scriptOptions.pctPageScrollMinBeforeLeaving / 100 ) ) &&
+                   ( randInt( 0, 100 ) < iPctChance ); 
+    },
+
+    // Determins the delay, in ms, to scroll.
+    scrollDelayFn: function() 
+    {
+        var iPctChance = scriptOptions.pctChanceExtScrollDelay;
+        var iMin = scriptOptions.minStdScrollDelay;
+        var iMax = scriptOptions.maxStdScrollDelay;
+
+        if ( iPctChance > 0 && randInt( 0, 100 ) < iPctChance )
+        {
+            iMin = scriptOptions.minExtScrollDelay;
+            iMax = scriptOptions.maxExtScrollDelay;
         }
+
+        return randInt( Math.min( iMin, iMax ), Math.max( iMin, iMax ) );
+    }
 };
 
 
@@ -110,14 +138,14 @@ function winnow_scroll()
         _w_data.yLoc = Math.max( 0, _w_data.yLoc - _w_data.scrollUpAmtFn() );
     else
         _w_data.yLoc = Math.min( _w_data.yLoc + _w_data.scrollDownAmtFn(), document.body.scrollHeight );
-    window.scroll( {
+    window.scroll( 
+    {
         left: 0,
         top: _w_data.yLoc,
         behavior: 'smooth'
     });
     // Should we leave the page now?
-    if ( scriptOptions.canLeavePageBeforeBottom &&
-         _w_data.shouldLeavePageBBFn() )
+    if ( _w_data.shouldLeavePageBBFn() )
     {
         console.log( "Randomly moving on to: " + links[selectedLink] );
         window.location = links[selectedLink];
